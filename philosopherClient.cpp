@@ -3,11 +3,15 @@
 
 #include "PhilosopherHeader.h"
 
-int requestSeating(){
+int requestSeating(int seat1){
 	//send to server 'seating'
+	int seathold;
+	err = send(cSocket, "seating", 7, 0);
 	//be updated in the servers array
 	//be returned the index/location in the ring
+	err = recv(cSocket, seathold, 1, 0);
 	//return that location for client reference
+	return seathold;
 }
 
 int requestFork(){
